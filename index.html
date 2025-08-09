@@ -1,66 +1,67 @@
-<!doctype html>
-<html lang="pt-PT">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Frento</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frento </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #111;
+            color: white;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .gallery img {
+            width: 300px;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1> Rita Franco Bento — Original Artworks</h1>
-      <nav class="main-nav">
-        <a href="#galeria">Galeria</a>
-        <a href="#loja">Loja</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section id="hero" class="hero container">
-      <h2>Peças únicas pintadas à mão</h2>
-      <p>Encomendas abertas — envio dentro da UE</p>
-      <a class="btn" href="#loja">Ver colecção</a>
+    <header>
+        <h1>Frento</h1>
+        <p>Arte original por Rita Franco Bento</p>
+    </header>
+
+    <section class="gallery">
+        <img src="https://via.placeholder.com/300" alt="Obra 1">
+        <img src="https://via.placeholder.com/300" alt="Obra 2">
+        <img src="https://via.placeholder.com/300" alt="Obra 3">
     </section>
 
-    <section id="galeria" class="container">
-      <h2>Galeria</h2>
-      <div class="grid">
-        <!-- Substitui as src pelas tuas imagens em /assets -->
-        <figure>
-          <img src="assets/p1.jpg" alt="Calças pintadas — padrão azul">
-          <figcaption>Calças Azul — €75</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/p2.jpg" alt="Calças pintadas — padrão flores">
-          <figcaption>Calças Flores — €90</figcaption>
-        </figure>
-      </div>
-    </section>
+    <footer>
+        <p>© 2025 Frento - Rita Franco Bento</p>
+    </footer>
 
-    <section id="loja" class="container">
-      <h2>Loja</h2>
-      <p>Encomendas por DM no Instagram ou através do formulário de contacto.</p>
-      <a class="btn" href="https://www.etsy.com/">Comprar na Etsy</a>
-    </section>
-
-    <section id="contacto" class="container">
-      <h2>Contacto</h2>
-      <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-        <label>Nome <input name="name" required></label>
-        <label>Email <input type="email" name="email" required></label>
-        <label>Mensagem <textarea name="message" rows="4" required></textarea></label>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© <span id="ano"></span> Rita Franco Bento</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
