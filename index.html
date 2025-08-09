@@ -1,114 +1,546 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Frento</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
-
-    /* Reset simples */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: #fff;
-      min-height: 100vh;
-      background: url('images/capasite.png') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start; /* corrigido */
-      justify-content: flex-start; /* corrigido */
-      padding: 4rem 1rem;
-      backdrop-filter: brightness(0.8);
-    }
-
-    header {
-      margin-bottom: 4rem;
-      text-align: left;
-    }
-
-    header h1 {
-      font-weight: 600;
-      font-size: 4rem;
-      letter-spacing: 0.15em;
-      opacity: 0.85;
-      user-select: none;
-    }
-
-    header p {
-      font-weight: 300;
-      font-size: 1.25rem;
-      opacity: 0.75;
-      margin-top: 0.5rem;
-      font-style: italic;
-    }
-
-    main {
-      width: 100%;
-      max-width: 1200px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: flex-start; /* corrigido */
-    }
-
-    main img {
-      width: 280px;
-      height: auto;
-      border-radius: 0;
-      box-shadow: none;
-      transition: transform 0.35s ease, filter 0.35s ease;
-      cursor: pointer;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-      user-select: none;
-    }
-
-    main img:hover {
-      transform: scale(1.07);
-      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.5));
-    }
-
-    footer {
-      margin-top: 6rem;
-      font-weight: 300;
-      font-size: 0.9rem;
-      opacity: 0.6;
-      user-select: none;
-    }
-
-    /* Responsivo */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.5rem;
-        letter-spacing: 0.1em;
-      }
-
-      main img {
-        width: 90vw;
-        max-width: 320px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Frento </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background-color: #2c2c2c;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 40px;
+        }
+        
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 300;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 40px;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: -1px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+        }
+        
+        .artwork {
+            position: relative;
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .artwork:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .artwork-image {
+            width: 100%;
+            height: 400px;
+            background-color: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .artwork-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .artwork:hover .artwork-image img {
+            transform: scale(1.05);
+        }
+        
+        .artwork-info {
+            padding: 30px;
+        }
+        
+        .artwork-title {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+        
+        .artwork-medium {
+            font-size: 14px;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Placeholder for images */
+        .placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #f0f0f0, #e8e8e8);
+            color: #999;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #fff;
+            padding: 120px 40px;
+        }
+        
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about h2 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+        }
+        
+        .about p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 120px 40px;
+            background-color: #fafafa;
+        }
+        
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-item h3 {
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .contact-item a {
+            color: #2c2c2c;
+            text-decoration: none;
+            font-size: 16px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            opacity: 0.6;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        footer p {
+            font-size: 14px;
+            font-weight: 300;
+            opacity: 0.7;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            nav {
+                padding: 0 20px;
+            }
+            
+            .hero {
+                padding: 0 20px;
+            }
+            
+            .gallery {
+                padding: 60px 20px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about, .contact {
+                padding: 80px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .section-title, .about h2, .contact h2 {
+                font-size: 36px;
+            }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Frento</h1>
-    <p>by Rita Franco Bento</p>
-  </header>
+    <header>
+        <nav>
+            <div class="logo">Frento</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-  <main>
-   <img src="images/donna.jpg" alt="Donna">
-    <img src="images/babyfever.jpeg" alt="Baby Fever">
-    <img src="images/estudo.jpg" alt="Marroquino">
-    <img src="images/salta.jpeg" alt="Salta!">
-  </main>
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Original Artworks</h1>
+                <p>Estudo de formas, cores e emoções através da expressão artística contemporânea</p>
+            </div>
+        </section>
 
-  <footer>
-    © 2025 Frento — Todos os direitos reservados
-  </footer>
+        <section id="galeria" class="gallery">
+            <h2 class="section-title fade-in">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="artwork fade-in">
+                    <div class="artwork-image">
+                        <div class="placeholder">Sua Arte Aqui</div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Baby Fever</h3>
+                        <p class="artwork-medium">Técnica mista sobre tela, 2025</p>
+                    </div>
+                </div>
+                
+                <div class="artwork fade-in">
+                    <div class="artwork-image">
+                        <div class="placeholder">Sua Arte Aqui</div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Donna</h3>
+                        <p class="artwork-medium">Acrílico sobre tela, 2024</p>
+                    </div>
+                </div>
+                
+                <div class="artwork fade-in">
+                    <div class="artwork-image">
+                        <div class="placeholder">Sua Arte Aqui</div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Salta!</h3>
+                        <p class="artwork-medium">Acrílico sobre tela, 2025</p>
+                    </div>
+                </div>
+                
+                <div class="artwork fade-in">
+                    <div class="artwork-image">
+                        <div class="placeholder">Sua Arte Aqui</div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Sem Titulo</h3>
+                        <p class="artwork-medium">Acrílico sobre tela, 2024</p>
+                    </div>
+                </div>
+                
+                <div class="artwork fade-in">
+                    <div class="artwork-image">
+                        <div class="placeholder">Sua Arte Aqui</div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Título da Obra</h3>
+                        <p class="artwork-medium">Digital, 2024</p>
+                    </div>
+                </div>
+                
+                <div class="artwork fade-in">
+                    <div class="artwork-image">
+                        <div class="placeholder">Sua Arte Aqui</div>
+                    </div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Título da Obra</h3>
+                        <p class="artwork-medium">Escultura em bronze, 2024</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="about">
+            <div class="about-container">
+                <h2 class="fade-in">Sobre</h2>
+                <p class="fade-in">Artista contemporâneo dedicado à exploração de novas formas de expressão visual. Meu trabalho busca a intersecção entre o tradicional e o moderno, criando peças que dialogam com as questões do nosso tempo.</p>
+                <p class="fade-in">Formado em Artes Visuais, desenvolvo minha prática artística através de diferentes meios e técnicas, sempre buscando a inovação e a autenticidade na criação.</p>
+                <p class="fade-in">Minhas obras foram expostas em diversas galerias e espaços culturais, refletindo uma jornada artística em constante evolução.</p>
+            </div>
+        </section>
+
+        <section id="contato" class="contact">
+            <div class="contact-container">
+                <h2 class="fade-in">Contato</h2>
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <h3>Email</h3>
+                        <a href="mailto:seuemail@exemplo.com">ritadebento@gmail.com</a>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <h3>Instagram</h3>
+                        <a href="https://instagram.com/seuusuario" target="_blank">@frento.rita</a>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <h3>Telefone</h3>
+                        <a href="tel:+351123456789">+351 123 456 789</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Rita Franco Bento. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(250, 250, 250, 0.98)';
+            } else {
+                header.style.backgroundColor = 'rgba(250, 250, 250, 0.95)';
+            }
+        });
+
+        // Mobile menu toggle (placeholder function)
+        function toggleMobileMenu() {
+            // Esta função pode ser expandida para mostrar/esconder o menu mobile
+            console.log('Mobile menu clicked');
+        }
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
