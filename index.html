@@ -1,79 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frento</title>
-    <style>
-        /* Fonte elegante */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frento</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 
-        body {
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-            color: white;
-            background: url('images/capa site.png') no-repeat center center fixed;
-            background-size: cover;
-            backdrop-filter: blur(2px);
-        }
+    /* Reset simples */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: rgba(0, 0, 0, 0.4);
-        }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      background: url('images/fundo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 4rem 1rem;
+      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+      backdrop-filter: brightness(0.8);
+    }
 
-        header h1 {
-            font-size: 3.5em;
-            margin: 0;
-        }
+    header {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
 
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
+    header h1 {
+      font-weight: 600;
+      font-size: 4rem;
+      letter-spacing: 0.15em;
+      opacity: 0.85;
+      user-select: none;
+    }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 40px;
-        }
+    header p {
+      font-weight: 300;
+      font-size: 1.25rem;
+      opacity: 0.75;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
 
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-        }
+    main {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
 
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
+    main img {
+      width: 280px;
+      height: auto;
+      border-radius: 0;
+      box-shadow: none;
+      transition: transform 0.35s ease, filter 0.35s ease;
+      cursor: pointer;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+      user-select: none;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            font-size: 0.9em;
-        }
-    </style>
+    main img:hover {
+      transform: scale(1.07);
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.5));
+    }
+
+    footer {
+      margin-top: 6rem;
+      font-weight: 300;
+      font-size: 0.9rem;
+      opacity: 0.6;
+      user-select: none;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+      }
+
+      main img {
+        width: 90vw;
+        max-width: 320px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Frento</h1>
-        <p>by Rita Franco Bento</p>
-    </header>
+  <header>
+    <h1>Frento</h1>
+    <p>by Rita Franco Bento</p>
+  </header>
 
-    <section class="gallery">
-        <img src="images/Donna.jpg" alt="Donna">
-        <img src="images/Baby Fever.jpeg" alt="Baby Fever">
-        <img src="images/Marroquino.jpeg" alt="Marroquino">
-        <img src="images/Salta!.jpeg" alt="Salta!">
-    </section>
+  <main>
+   <img src="images/Donna.jpg" alt="Donna">
+    <img src="images/Baby Fever.jpeg" alt="Baby Fever">
+    <img src="images/Marroquino.jpeg" alt="Marroquino">
+    <img src="images/Salta!.jpeg" alt="Salta!">
+  </main>
 
-    <footer>
-        © 2025 Frento - Todos os direitos reservados
-    </footer>
+  <footer>
+    © 2025 Frento — Todos os direitos reservados
+  </footer>
 </body>
 </html>
