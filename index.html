@@ -3,46 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frento </title>
+    <title>Frento</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #111;
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             color: white;
-            padding: 20px;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center fixed;
+            background-size: cover;
         }
+
+        header {
+            text-align: center;
+            padding: 100px 20px 50px;
+            background: rgba(0, 0, 0, 0.3); /* leve transparência para destacar o texto */
+        }
+
         h1 {
-            font-size: 3em;
-            margin: 0;
+            font-size: 4em;
+            font-weight: 300;
+            letter-spacing: 5px;
         }
+
         p {
             font-size: 1.2em;
-            color: #555;
+            margin-top: 10px;
+            font-weight: 200;
         }
+
         .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.2);
         }
+
         .gallery img {
-            width: 300px;
+            width: 100%;
             height: auto;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
         }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
         footer {
-            background-color: #111;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            background: rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -50,13 +67,14 @@
 
     <header>
         <h1>Frento</h1>
-        <p>Arte original por Rita Franco Bento</p>
+        <p> by Rita Franco Bento</p>
     </header>
 
     <section class="gallery">
-        <img src="https://via.placeholder.com/300" alt="Obra 1">
-        <img src="https://via.placeholder.com/300" alt="Obra 2">
-        <img src="https://via.placeholder.com/300" alt="Obra 3">
+        <img src="https://via.placeholder.com/600x800" alt="Obra 1">
+        <img src="https://via.placeholder.com/600x800" alt="Obra 2">
+        <img src="https://via.placeholder.com/600x800" alt="Obra 3">
+        <img src="https://via.placeholder.com/600x800" alt="Obra 4">
     </section>
 
     <footer>
