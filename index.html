@@ -5,49 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frento</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Fonte elegante */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
             color: white;
-            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center fixed;
+            background: url('images/capa site.png') no-repeat center center fixed;
             background-size: cover;
+            backdrop-filter: blur(2px);
         }
 
         header {
             text-align: center;
-            padding: 100px 20px 50px;
-            background: rgba(0, 0, 0, 0.3); /* leve transparência para destacar o texto */
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.4);
         }
 
-        h1 {
-            font-size: 4em;
-            font-weight: 300;
-            letter-spacing: 5px;
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
         }
 
-        p {
+        header p {
             font-size: 1.2em;
             margin-top: 10px;
-            font-weight: 200;
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
             padding: 40px;
-            background: rgba(0, 0, 0, 0.2);
         }
 
         .gallery img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 5px;
             transition: transform 0.3s ease;
         }
 
@@ -58,28 +54,26 @@
         footer {
             text-align: center;
             padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
             font-size: 0.9em;
-            background: rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
-
     <header>
         <h1>Frento</h1>
-        <p> by Rita Franco Bento</p>
+        <p>by Rita Franco Bento</p>
     </header>
 
     <section class="gallery">
-        <img src="https://via.placeholder.com/600x800" alt="Obra 1">
-        <img src="https://via.placeholder.com/600x800" alt="Obra 2">
-        <img src="https://via.placeholder.com/600x800" alt="Obra 3">
-        <img src="https://via.placeholder.com/600x800" alt="Obra 4">
+        <img src="images/Donna.jpg" alt="Donna">
+        <img src="images/Baby Fever.jpeg" alt="Baby Fever">
+        <img src="images/Marroquino.jpeg" alt="Marroquino">
+        <img src="images/Salta!.jpeg" alt="Salta!">
     </section>
 
     <footer>
-        <p>© 2025 Frento - Rita Franco Bento</p>
+        © 2025 Frento - Todos os direitos reservados
     </footer>
-
 </body>
 </html>
