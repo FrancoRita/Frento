@@ -87,11 +87,23 @@
             padding: 10px 14px; border-radius: 999px; font-size: 13px; color: #eee; white-space: nowrap;
         }
 
-        /* About / Contact / Footer (inalterado do essencial) */
-        .about { background-color: #2d2d2d; padding: 120px 40px; }
-        .about-container { max-width: 800px; margin: 0 auto; text-align: center; }
-        .about h2 { font-size: 48px; font-weight: 300; margin-bottom: 40px; letter-spacing: -1px; }
-        .about p { font-size: 18px; line-height: 1.8; color: #f0f0f0; margin-bottom: 30px; }
+        /* About — imagem inteira sem corte */
+        .about {
+            position: relative;
+            padding: 0;
+            background-color: #000; /* caso a imagem não ocupe toda a largura/altura */
+            overflow: hidden;
+        }
+        .about img.about-fullimg {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* garante que a imagem não é cortada */
+            max-width: 100%;
+        }
+
+        /* Contact / Footer
+           Nota: mantive os estilos originais da secção de contacto. */
         .contact { padding: 120px 40px; background-color: #222222; }
         .contact-container { max-width: 600px; margin: 0 auto; text-align: center; }
         .contact h2 { font-size: 48px; font-weight: 300; margin-bottom: 40px; letter-spacing: -1px; }
@@ -105,7 +117,9 @@
 
         /* Animations */
         @keyframes fadeInUp { from{ opacity:0; transform: translateY(30px);} to{opacity:1; transform: translateY(0);} }
-        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .fade-in { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.2,0.9,0.2,1); }
+        /* ajuste específico para a imagem 'sobre' para garantir suavidade */
+        .about-fullimg.fade-in { will-change: transform, opacity; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* Responsive */
@@ -208,12 +222,7 @@
     </section>
 
     <section id="sobre" class="about">
-        <div class="about-container">
-            <h2 class="fade-in">Sobre</h2>
-            <p class="fade-in">Artista contemporâneo dedicado à exploração de novas formas de expressão visual. Meu trabalho busca a intersecção entre o tradicional e o moderno, criando peças que dialogam com as questões do nosso tempo.</p>
-            <p class="fade-in">Formado em Artes Visuais, desenvolvo minha prática artística através de diferentes meios e técnicas, sempre buscando a inovação e a autenticidade na criação.</p>
-            <p class="fade-in">Minhas obras foram expostas em diversas galerias e espaços culturais, refletindo uma jornada artística em constante evolução.</p>
-        </div>
+        <img src="sobre.jpeg" alt="" class="about-fullimg fade-in" />
     </section>
 
     <section id="contato" class="contact">
