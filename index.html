@@ -180,27 +180,14 @@
         }
         
         .artwork-image img {
-            display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
-
-  /* 1. sombra leve por padrão */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-
-  /* 2. suavizar transform e sombra */
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            will-change: transform, box-shadow;
-        
-
+            transition: transform 0.4s ease;
         }
         
         .artwork:hover .artwork-image img {
-  /* leve zoom */
             transform: scale(1.05);
-  
-  /* sombra mais pronunciada */
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
         }
         
         .artwork-info {
