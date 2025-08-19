@@ -293,6 +293,7 @@ function closeLightbox(){
 for (const img of document.querySelectorAll('.artwork-image img')){
     img.addEventListener('click', () => openLightbox(img.getAttribute('src'), img.closest('.artwork').querySelector('.artwork-title')?.textContent));
 }
+<link rel="icon" type="image/png" href="/favicon.png">
 
 // fechar ao clicar fora/na imagem ou tecla ESC
 lightbox.addEventListener('click', closeLightbox);
