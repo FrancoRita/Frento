@@ -12,8 +12,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #222222;
-            color: #dddddd;
+            background-color: #1e2612;
+            color: #e6e8e3;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -21,38 +21,41 @@
         /* Header */
         header {
             position: fixed; top: 0; width: 100%;
-            background-color: rgb(34,34,34);
+            background-color: rgba(32,44,18,0.95);
             backdrop-filter: blur(10px);
-            z-index: 1000; padding: 20px 0; transition: all 0.3s ease;
+            z-index: 1000; padding: 20px 0; transition: background-color 0.5s ease;
         }
+        header.transparent {
+            background-color: rgba(107, 142, 35, 0.4);
+        }
+
         nav { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: #f0f0f0; }
+        .logo img { height: 70px; transition: height 0.3s ease; }
         .nav-links { display: flex; list-style: none; gap: 40px; }
-        .nav-links a { text-decoration: none; color: #f0f0f0; font-weight: 400; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; transition: opacity 0.3s ease; }
+        .nav-links a { text-decoration: none; color: #dce8d0; font-weight: 400; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; transition: opacity 0.3s ease; }
         .nav-links a:hover { opacity: 0.6; }
         .mobile-menu { display: none; flex-direction: column; cursor: pointer; }
-        .mobile-menu span { width: 25px; height: 2px; background-color: #f0f0f0; margin: 3px 0; transition: 0.3s; }
+        .mobile-menu span { width: 25px; height: 2px; background-color: #dce8d0; margin: 3px 0; transition: 0.3s; }
 
-        main { margin-top: 80px; }
+        main { margin-top: 100px; }
 
         /* Hero */
         .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 40px; position: relative; overflow: hidden; }
         .hero-background { position: absolute; inset: 0; background-image: url('capasite.png'); background-size: cover; background-position: center; opacity: 0.5; z-index: 1; }
-        .hero-content { position: relative; z-index: 2; color: white; }
+        .hero-content { position: relative; z-index: 2; color: #f3f6f0; }
         .hero-content h1 { font-size: clamp(3rem, 8vw, 8rem); font-weight: 300; letter-spacing: -2px; margin-bottom: 20px; opacity: 0; animation: fadeInUp 1s ease 0.2s forwards; }
         .hero-content p { font-size: 18px; font-weight: 300; letter-spacing: 1px; opacity: 0.7; max-width: 600px; margin: 0 auto; opacity: 0; animation: fadeInUp 1s ease 0.4s forwards; }
 
         /* Gallery */
         .gallery { max-width: 1400px; margin: 0 auto; padding: 100px 40px; }
-        .section-title { font-size: 48px; font-weight: 300; letter-spacing: -1px; text-align: center; margin-bottom: 80px; }
+        .section-title { font-size: 48px; font-weight: 300; letter-spacing: -1px; text-align: center; margin-bottom: 80px; color: #d4e5b0; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px; }
 
-        .artwork { position: relative; overflow: hidden; background-color: #222222; border-radius: 0; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .artwork { position: relative; overflow: visible; background-color: transparent; border-radius: 0; transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .artwork:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
 
         .artwork-image {
             width: 100%; height: 400px; position: relative; overflow: hidden; border-radius: 0;
-            /* sombra suave à volta da imagem */
             box-shadow: 0 10px 30px rgba(0,0,0,0.45);
         }
         .artwork-image img {
@@ -60,24 +63,40 @@
             will-change: transform;
             cursor: zoom-in;
         }
-        /* zoom leve ao passar o cursor */
         .artwork:hover .artwork-image img { transform: scale(1.06); filter: saturate(1.02); }
 
-        .artwork-info { padding: 24px 28px 30px; }
-        .artwork-title { font-size: 24px; font-weight: 400; margin-bottom: 8px; }
-        .artwork-medium { font-size: 14px; color: #aaa; font-weight: 300; letter-spacing: 0.5px; }
+        .artwork-info {
+            padding-top: 14px;
+            text-align: center;
+            background: transparent;
+            position: relative;
+        }
+        .artwork-title {
+            font-size: 24px;
+            font-weight: 400;
+            margin-top: 10px;
+            display: block;
+            background: none;
+        }
+        .artwork-medium {
+            font-size: 14px;
+            color: #b5c59b;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-top: 5px;
+        }
 
-        .placeholder { display: flex; align-items: center; justify-content: center; height: 100%; background: linear-gradient(45deg, #222222, #2e2e2e); color: #f0f0f0; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+        .placeholder { display: flex; align-items: center; justify-content: center; height: 100%; background: #6B8E23; color: #f0f0f0; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
 
-        /* Lightbox (resolução real) */
+        /* Lightbox */
         .lightbox {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center;
+            position: fixed; inset: 0; background: rgba(10,15,5,0.9); display: none; align-items: center; justify-content: center;
             z-index: 2000; padding: 4vh 4vw;
         }
         .lightbox.open { display: flex; }
         .lightbox img {
-            /* mostra a imagem no tamanho real até ao limite do ecrã */
-            width: auto; height: auto; max-width: 92vw; max-height: 92vh; image-rendering: auto;
+            width: auto; height: auto; max-width: 92vw; max-height: 92vh;
             box-shadow: 0 25px 80px rgba(0,0,0,0.7);
             border-radius: 12px;
             cursor: zoom-out;
@@ -85,45 +104,39 @@
         .lightbox .meta {
             position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
             background: rgba(20,20,20,0.6); backdrop-filter: blur(6px);
-            padding: 10px 14px; border-radius: 999px; font-size: 13px; color: #eee; white-space: nowrap;
+            padding: 10px 14px; border-radius: 999px; font-size: 13px; color: #e8eedc; white-space: nowrap;
         }
 
-        /* About — imagem inteira sem corte */
         .about {
             position: relative;
             padding: 0;
-            background-color: #000; /* caso a imagem não ocupe toda a largura/altura */
+            background-color: #000;
             overflow: hidden;
         }
         .about img.about-fullimg {
             display: block;
             width: 100%;
             height: auto;
-            object-fit: contain; /* garante que a imagem não é cortada */
+            object-fit: contain;
             max-width: 100%;
         }
 
-        /* Contact / Footer
-           Nota: mantive os estilos originais da secção de contacto. */
-        .contact { padding: 120px 40px; background-color: #222222; }
+        .contact { padding: 120px 40px; background-color: #243015; }
         .contact-container { max-width: 600px; margin: 0 auto; text-align: center; }
         .contact h2 { font-size: 48px; font-weight: 300; margin-bottom: 40px; letter-spacing: -1px; }
         .contact-info { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
         .contact-item { text-align: center; }
         .contact-item h3 { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-        .contact-item a { color: #f0f0f0; text-decoration: none; font-size: 16px; transition: opacity 0.3s ease; }
+        .contact-item a { color: #d4e5b0; text-decoration: none; font-size: 16px; transition: opacity 0.3s ease; }
         .contact-item a:hover { opacity: 0.6; }
-        footer { background-color: #2c2c2c; color: #f0f0f0; text-align: center; padding: 40px; }
-        footer p { font-size: 14px; font-weight: 300; opacity: 0.7; }
+        footer { background-color: #2f3e1a; color: #dce8d0; text-align: center; padding: 40px; }
+        footer p { font-size: 14px; font-weight: 300; opacity: 0.9; }
 
-        /* Animations */
         @keyframes fadeInUp { from{ opacity:0; transform: translateY(30px);} to{opacity:1; transform: translateY(0);} }
         .fade-in { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.2,0.9,0.2,1); }
-        /* ajuste específico para a imagem 'sobre' para garantir suavidade */
         .about-fullimg.fade-in { will-change: transform, opacity; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu { display: flex; }
@@ -140,9 +153,8 @@
 <body>
 <header>
     <nav>
-        <a class="logo" href="#inicio">Frento</a>
+        <a class="logo" href="#inicio"><img src="FrentoC.png" alt="Frento"></a>
         <ul class="nav-links">
-            <!-- Removido o botão de Início; o logo faz essa função -->
             <li><a href="#trabalhos">Trabalhos</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#contactos">Contactos</a></li>
@@ -161,7 +173,7 @@
         </div>
     </section>
 
-    <section id="galeria" class="gallery">
+    <section id="trabalhos" class="gallery">
         <h2 class="section-title fade-in">Trabalhos</h2>
         <div class="gallery-grid">
             <div class="artwork fade-in">
@@ -207,7 +219,7 @@
     </section>
 
     <section id="sobre" class="about">
-        <img src="sobre.jpeg" alt="" class="about-fullimg fade-in" />
+        <img src="sobre.jpeg" alt="Sobre" class="about-fullimg fade-in" />
     </section>
 
     <section id="contactos" class="contact">
@@ -230,14 +242,12 @@
     <p>&copy; 2025 Rita Franco Bento. Todos os direitos reservados.</p>
 </footer>
 
-<!-- Lightbox -->
 <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
     <img id="lightbox-img" alt="Imagem ampliada" />
     <div class="meta" id="lightbox-meta"></div>
 </div>
 
 <script>
-// Smooth scrolling
 for (const anchor of document.querySelectorAll('a[href^="#"]')) {
     anchor.addEventListener('click', (e) => {
         e.preventDefault();
@@ -246,38 +256,37 @@ for (const anchor of document.querySelectorAll('a[href^="#"]')) {
     });
 }
 
-// Fade-in on scroll
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
 document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
 
-// Header bg on scroll
+const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    header.style.backgroundColor = 'rgb(34,34,34)';
+    if (window.scrollY > 50) {
+        header.classList.add('transparent');
+    } else {
+        header.classList.remove('transparent');
+    }
 });
 
 function toggleMobileMenu(){ console.log('Mobile menu clicked'); }
 
-// Parallax hero
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset; const hero = document.querySelector('.hero');
     if (hero) hero.style.transform = `translateY(${scrolled * -0.5}px)`;
 });
 
-// ===== Lightbox (resolução real) =====
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxMeta = document.getElementById('lightbox-meta');
 
 function openLightbox(src, title){
-    lightboxImg.src = src; // usa a imagem no seu ficheiro original
+    lightboxImg.src = src;
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden','false');
 
-    // quando a imagem carregar, mostra dimensões reais
     lightboxImg.onload = () => {
         const w = lightboxImg.naturalWidth; const h = lightboxImg.naturalHeight;
         lightboxMeta.textContent = `${title ?? ''} ${title ? '· ' : ''}${w}×${h}px`;
@@ -290,12 +299,10 @@ function closeLightbox(){
     lightboxImg.removeAttribute('src');
 }
 
-// abrir ao clicar em qualquer imagem de obra
 for (const img of document.querySelectorAll('.artwork-image img')){
     img.addEventListener('click', () => openLightbox(img.getAttribute('src'), img.closest('.artwork').querySelector('.artwork-title')?.textContent));
 }
 
-// fechar ao clicar fora/na imagem ou tecla ESC
 lightbox.addEventListener('click', closeLightbox);
 window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 </script>
